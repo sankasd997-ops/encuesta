@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | Energy Tracker</title>
+
+    <!-- Fuente -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/estilos.css">
+
+</head>
+
+<body class="dashboard-body">
+
+    <!-- Fondo -->
+    <div class="background-blur blur1"></div>
+    <div class="background-blur blur2"></div>
+
+    <main class="dashboard-container">
+
+        <!-- Encabezado -->
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <h1>
+
+                    <i class="fa-solid fa-bolt"></i>
+
+                    Energy Tracker
+
+                </h1>
+
+                <p>
+                    Dashboard en tiempo real
+                </p>
+
+            </div>
+
+            <div class="live-indicator">
+
+                <span class="live-dot"></span>
+
+                EN VIVO
+
+            </div>
+
+        </header>
+
+        <!-- Tarjetas KPI -->
+
+        <section class="kpi-grid">
+
+            <div class="kpi-card">
+
+                <h3>Total respuestas</h3>
+
+                <span id="totalRespuestas">
+
+                    0
+
+                </span>
+
+            </div>
+
+            <div class="kpi-card">
+
+                <h3>Promedio</h3>
+
+                <span id="promedio">
+
+                    0.0
+
+                </span>
+
+            </div>
+
+            <div class="kpi-card">
+
+                <h3>Última actualización</h3>
+
+                <span id="ultimaHora">
+
+                    --
+
+                </span>
+
+            </div>
+
+        </section>
+
+        <!-- Carita Principal -->
+
+        <section class="hero-card">
+
+            <div
+                id="emojiPrincipal"
+                class="hero-emoji">
+
+                😐
+
+            </div>
+
+            <h2 id="estadoTexto">
+
+                Esperando respuestas...
+
+            </h2>
+
+            <p>
+
+                Última respuesta recibida
+
+            </p>
+
+        </section>
+
+        <!-- Distribución -->
+
+        <section class="stats-card">
+
+            <h2>
+
+                Distribución de respuestas
+
+            </h2>
+
+            <!-- Nivel 1 -->
+
+            <div class="row">
+
+                <div class="emoji-label">
+
+                    😫
+
+                </div>
+
+                <div class="bar">
+
+                    <div
+                        id="bar1"
+                        class="fill red">
+
+                    </div>
+
+                </div>
+
+                <div
+                    id="count1"
+                    class="count">
+
+                    0
+
+                </div>
+
+            </div>
+
+            <!-- Nivel 2 -->
+
+            <div class="row">
+
+                <div class="emoji-label">
+
+                    🙁
+
+                </div>
+
+                <div class="bar">
+
+                    <div
+                        id="bar2"
+                        class="fill orange">
+
+                    </div>
+
+                </div>
+
+                <div
+                    id="count2"
+                    class="count">
+
+                    0
+
+                </div>
+
+            </div>
+
+            <!-- Nivel 3 -->
+
+            <div class="row">
+
+                <div class="emoji-label">
+
+                    😐
+
+                </div>
+
+                <div class="bar">
+
+                    <div
+                        id="bar3"
+                        class="fill yellow">
+
+                    </div>
+
+                </div>
+
+                <div
+                    id="count3"
+                    class="count">
+
+                    0
+
+                </div>
+
+            </div>
+
+            <!-- Nivel 4 -->
+
+            <div class="row">
+
+                <div class="emoji-label">
+
+                    🙂
+
+                </div>
+
+                <div class="bar">
+
+                    <div
+                        id="bar4"
+                        class="fill green">
+
+                    </div>
+
+                </div>
+
+                <div
+                    id="count4"
+                    class="count">
+
+                    0
+
+                </div>
+
+            </div>
+
+            <!-- Nivel 5 -->
+
+            <div class="row">
+
+                <div class="emoji-label">
+
+                    😁
+
+                </div>
+
+                <div class="bar">
+
+                    <div
+                        id="bar5"
+                        class="fill darkgreen">
+
+                    </div>
+
+                </div>
+
+                <div
+                    id="count5"
+                    class="count">
+
+                    0
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Resumen -->
+
+        <section class="summary-grid">
+
+            <div class="summary-card">
+
+                <span>😫</span>
+
+                <h3 id="p1">
+
+                    0%
+
+                </h3>
+
+                <small>
+
+                    Muy Baja
+
+                </small>
+
+            </div>
+
+            <div class="summary-card">
+
+                <span>🙁</span>
+
+                <h3 id="p2">
+
+                    0%
+
+                </h3>
+
+                <small>
+
+                    Baja
+
+                </small>
+
+            </div>
+
+            <div class="summary-card">
+
+                <span>😐</span>
+
+                <h3 id="p3">
+
+                    0%
+
+                </h3>
+
+                <small>
+
+                    Normal
+
+                </small>
+
+            </div>
+
+            <div class="summary-card">
+
+                <span>🙂</span>
+
+                <h3 id="p4">
+
+                    0%
+
+                </h3>
+
+                <small>
+
+                    Buena
+
+                </small>
+
+            </div>
+
+            <div class="summary-card">
+
+                <span>😁</span>
+
+                <h3 id="p5">
+
+                    0%
+
+                </h3>
+
+                <small>
+
+                    Excelente
+
+                </small>
+
+            </div>
+
+        </section>
+
+        <!-- Últimas respuestas -->
+
+        <section class="table-card">
+
+            <div class="table-header">
+
+                <h2>
+
+                    Últimas respuestas
+
+                </h2>
+
+            </div>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Hora</th>
+
+                        <th>Nivel</th>
+
+                        <th>Estado</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="tablaRespuestas">
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+    <script type="module" src="js/firebase.js"></script>
+
+    <script type="module" src="js/dashboard.js"></script>
+
+</body>
+
+</html>

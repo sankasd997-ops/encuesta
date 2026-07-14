@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Panel de Administración | Energy Tracker</title>
+
+    <!-- Fuente -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/estilos.css">
+
+</head>
+
+<body class="admin-body">
+
+    <div class="background-blur blur1"></div>
+    <div class="background-blur blur2"></div>
+
+    <div class="admin-container">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="logo-admin">
+
+                <div class="logo-circle">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+
+                <h2>Energy Tracker</h2>
+
+            </div>
+
+            <nav>
+
+                <a href="admin.html" class="active">
+
+                    <i class="fa-solid fa-gauge"></i>
+
+                    Dashboard
+
+                </a>
+
+                <a href="index.html">
+
+                    <i class="fa-solid fa-square-poll-horizontal"></i>
+
+                    Encuesta
+
+                </a>
+
+                <a href="dashboard.html">
+
+                    <i class="fa-solid fa-chart-column"></i>
+
+                    Estadísticas
+
+                </a>
+
+            </nav>
+
+        </aside>
+
+        <!-- CONTENIDO -->
+        <main class="content">
+
+            <!-- Encabezado -->
+            <header class="topbar">
+
+                <div>
+
+                    <h1>Panel de Administración</h1>
+
+                    <p>
+                        Monitorea las respuestas en tiempo real.
+                    </p>
+
+                </div>
+
+            </header>
+
+            <!-- KPIs -->
+            <section class="cards">
+
+                <div class="kpi-card">
+
+                    <i class="fa-solid fa-users"></i>
+
+                    <h3>Total respuestas</h3>
+
+                    <span id="totalRespuestas">0</span>
+
+                </div>
+
+                <div class="kpi-card">
+
+                    <i class="fa-solid fa-face-smile"></i>
+
+                    <h3>Promedio</h3>
+
+                    <span id="promedioEnergia">0.0</span>
+
+                </div>
+
+                <div class="kpi-card">
+
+                    <i class="fa-solid fa-clock"></i>
+
+                    <h3>Última respuesta</h3>
+
+                    <span id="ultimaRespuesta">
+                        --
+                    </span>
+
+                </div>
+
+            </section>
+
+            <!-- Distribución -->
+            <section class="panel">
+
+                <div class="panel-header">
+
+                    <h2>
+
+                        <i class="fa-solid fa-chart-pie"></i>
+
+                        Distribución de respuestas
+
+                    </h2>
+
+                </div>
+
+                <div class="levels">
+
+                    <div class="level">
+
+                        😫
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-fill level1"
+                                id="nivel1">
+                            </div>
+
+                        </div>
+
+                        <span id="count1">0</span>
+
+                    </div>
+
+                    <div class="level">
+
+                        🙁
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-fill level2"
+                                id="nivel2">
+                            </div>
+
+                        </div>
+
+                        <span id="count2">0</span>
+
+                    </div>
+
+                    <div class="level">
+
+                        😐
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-fill level3"
+                                id="nivel3">
+                            </div>
+
+                        </div>
+
+                        <span id="count3">0</span>
+
+                    </div>
+
+                    <div class="level">
+
+                        🙂
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-fill level4"
+                                id="nivel4">
+                            </div>
+
+                        </div>
+
+                        <span id="count4">0</span>
+
+                    </div>
+
+                    <div class="level">
+
+                        😁
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-fill level5"
+                                id="nivel5">
+                            </div>
+
+                        </div>
+
+                        <span id="count5">0</span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- Tabla -->
+            <section class="panel">
+
+                <div class="panel-header">
+
+                    <h2>
+
+                        <i class="fa-solid fa-table"></i>
+
+                        Últimas respuestas
+
+                    </h2>
+
+                </div>
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Fecha</th>
+
+                                <th>Nivel</th>
+
+                                <th>Emoji</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="tablaRespuestas">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+            <!-- Botones -->
+            <section class="panel">
+
+                <div class="panel-header">
+
+                    <h2>
+
+                        <i class="fa-solid fa-gears"></i>
+
+                        Herramientas
+
+                    </h2>
+
+                </div>
+
+                <div class="acciones">
+
+                    <button
+                        id="btnExportar"
+                        class="btn-primary">
+
+                        <i class="fa-solid fa-file-csv"></i>
+
+                        Exportar CSV
+
+                    </button>
+
+                    <button
+                        id="btnActualizar"
+                        class="btn-secondary">
+
+                        <i class="fa-solid fa-rotate"></i>
+
+                        Actualizar
+
+                    </button>
+
+                    <button
+                        id="btnEliminar"
+                        class="btn-danger">
+
+                        <i class="fa-solid fa-trash"></i>
+
+                        Borrar respuestas
+
+                    </button>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script type="module" src="js/firebase.js"></script>
+
+    <script type="module" src="js/admin.js"></script>
+
+</body>
+
+</html>
