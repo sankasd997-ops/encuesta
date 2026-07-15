@@ -49,31 +49,16 @@ from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
 
 const firebaseConfig = {
 
-
-    apiKey: "TU_API_KEY",
-
-
-    authDomain:
-    "TU_PROYECTO.firebaseapp.com",
-
-
-    projectId:
-    "TU_PROJECT_ID",
-
-
-    storageBucket:
-    "TU_BUCKET.appspot.com",
-
-
-    messagingSenderId:
-    "TU_MESSAGING_ID",
-
-
-    appId:
-    "TU_APP_ID"
+apiKey: "AIzaSyCYWvc_AkYzYobtUmQNV4hu-i1oG1dg2J8",
+  authDomain: "encuestasweb-92f8c.firebaseapp.com",
+  projectId: "encuestasweb-92f8c",
+  storageBucket: "encuestasweb-92f8c.firebasestorage.app",
+  messagingSenderId: "649079601837",
+  appId: "1:649079601837:web:04e8d9ca5cf33bb2e1e424"
 
 
 };
+
 
 
 
