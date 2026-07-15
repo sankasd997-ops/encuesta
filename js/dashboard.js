@@ -1,9 +1,3 @@
-/****************************************************************
- *
- *      ENERGY TRACKER
- *      dashboard.js
- *
- ****************************************************************/
 import {
     respuestasCollection,
     onSnapshot,
@@ -11,15 +5,11 @@ import {
     orderBy
 } from "./firebase.js";
 
-// ==========================================================
-// ELEMENTOS DEL DOM
-// ==========================================================
+
 const totalRespuestasEl = document.getElementById("totalRespuestas");
 const reactionsContainer = document.getElementById("reactionsContainer");
 
-// ==========================================================
-// NIVELES
-// ==========================================================
+
 const niveles = {
     1: { emoji: "😫", estado: "Muy baja" },
     2: { emoji: "🙁", estado: "Baja" },
@@ -28,23 +18,12 @@ const niveles = {
     5: { emoji: "😁", estado: "Excelente" }
 };
 
-// ==========================================================
-// CONTROL DE PRIMERA CARGA
-// ==========================================================
-// Evita animar todas las respuestas ya existentes cuando
-// la página carga por primera vez. Solo se anima lo que
-// llega DESPUÉS de esa primera carga.
-// ==========================================================
+
 let primeraCarga = true;
 
-// Evita animar dos veces el mismo documento (por ejemplo si
-// Firestore dispara un "added" local optimista y luego otro
-// al confirmarse con el servidor).
+
 const idsYaAnimados = new Set();
 
-// ==========================================================
-// ANIMACIÓN DE REACCIÓN
-// ==========================================================
 function animarNuevaRespuesta(energia) {
     const nivel = niveles[energia];
     if (!nivel) return;
@@ -55,17 +34,11 @@ function animarNuevaRespuesta(energia) {
 
     reactionsContainer.appendChild(chip);
 
-    // Se elimina solo cuando termina la animación CSS,
-    // así soporta múltiples respuestas simultáneas sin
-    // pisarse unas a otras.
     chip.addEventListener("animationend", () => {
         chip.remove();
     });
 }
 
-// ==========================================================
-// CONSULTA EN TIEMPO REAL
-// ==========================================================
 const respuestasQuery = query(
     respuestasCollection,
     orderBy("timestamp", "desc")
@@ -73,9 +46,7 @@ const respuestasQuery = query(
 
 onSnapshot(respuestasQuery, (snapshot) => {
 
-    // ------------------------------------------------------
-    // DETECTAR RESPUESTAS NUEVAS (para animar)
-    // ------------------------------------------------------
+
     if (!primeraCarga) {
         snapshot.docChanges().forEach(change => {
             if (change.type === "added" && !idsYaAnimados.has(change.doc.id)) {
@@ -85,8 +56,7 @@ onSnapshot(respuestasQuery, (snapshot) => {
             }
         });
     } else {
-        // En la primera carga solo registramos los ids
-        // existentes, sin animarlos.
+
         snapshot.docChanges().forEach(change => {
             if (change.type === "added") {
                 idsYaAnimados.add(change.doc.id);
@@ -95,9 +65,6 @@ onSnapshot(respuestasQuery, (snapshot) => {
         primeraCarga = false;
     }
 
-    // ------------------------------------------------------
-    // RECALCULAR MÉTRICAS CON TODOS LOS DOCUMENTOS
-    // ------------------------------------------------------
     const respuestas = snapshot.docs.map(doc => doc.data());
     const total = respuestas.length;
 

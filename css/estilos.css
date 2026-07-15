@@ -1,9 +1,3 @@
-/* ==========================================================
-   ENERGY TRACKER
-   Parte 1
-   Variables + Layout + Formulario
-========================================================== */
-
 :root{
 
     --primary:#5B8CFF;
@@ -712,7 +706,7 @@ KPIs
 
     display:grid;
 
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:1fr;
 
     gap:25px;
 
@@ -2943,7 +2937,3 @@ SOMBRA PREMIUM
     0 0 40px rgba(91,140,255,.12);
 
 }
-
-/*=============================
-FIN DEL ARCHIVO
-=============================*/

@@ -1,17 +1,3 @@
-/****************************************************************
- *
- *      ENERGY TRACKER
- *      firebase.js
- *
- *      Configuración central de Firebase
- *
- ****************************************************************/
-
-
-// ==========================================================
-// IMPORTACIONES FIREBASE
-// ==========================================================
-
 import { initializeApp }
 
 from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
@@ -31,22 +17,6 @@ import {
 
 from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
 
-
-
-// ==========================================================
-// CONFIGURACIÓN FIREBASE
-// ==========================================================
-//
-// Reemplaza estos valores con los de tu proyecto Firebase
-//
-// Firebase Console
-//  -> Configuración del proyecto
-//  -> Tus aplicaciones
-//  -> Aplicación Web
-//
-// ==========================================================
-
-
 const firebaseConfig = {
 
 apiKey: "AIzaSyCYWvc_AkYzYobtUmQNV4hu-i1oG1dg2J8",
@@ -59,25 +29,11 @@ apiKey: "AIzaSyCYWvc_AkYzYobtUmQNV4hu-i1oG1dg2J8",
 
 };
 
-
-
-
-// ==========================================================
-// INICIALIZAR FIREBASE
-// ==========================================================
-
-
 const app = initializeApp(
 
     firebaseConfig
 
 );
-
-
-
-// ==========================================================
-// FIRESTORE
-// ==========================================================
 
 
 const db = getFirestore(
@@ -86,26 +42,6 @@ const db = getFirestore(
 
 );
 
-
-
-// ==========================================================
-// COLECCIÓN PRINCIPAL
-// ==========================================================
-//
-// Aquí se guardarán las respuestas:
-//
-// respuestas
-//    └── documento
-//          ├── energia
-//          ├── emoji
-//          ├── estado
-//          ├── fecha
-//          ├── hora
-//          └── timestamp
-//
-// ==========================================================
-
-
 const respuestasCollection = collection(
 
     db,
@@ -113,13 +49,6 @@ const respuestasCollection = collection(
     "respuestas"
 
 );
-
-
-
-// ==========================================================
-// EXPORTAR SERVICIOS
-// ==========================================================
-
 
 export {
 

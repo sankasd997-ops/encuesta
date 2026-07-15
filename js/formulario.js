@@ -1,10 +1,3 @@
-/****************************************************************
- *
- *      ENERGY TRACKER
- *      formulario.js
- *
- ****************************************************************/
-
 import {
 
     respuestasCollection,
@@ -13,11 +6,6 @@ import {
 
 } from "./firebase.js";
 
-
-// ==========================================================
-// ELEMENTOS
-// ==========================================================
-
 const formulario = document.getElementById("energyForm");
 
 const mensaje = document.getElementById("mensaje");
@@ -25,12 +13,6 @@ const mensaje = document.getElementById("mensaje");
 const boton = document.getElementById("btnEnviar");
 
 const opciones = document.querySelectorAll(".emoji-option");
-
-
-// ==========================================================
-// EMOJIS
-// ==========================================================
-
 const niveles = {
 
     1:{
@@ -60,11 +42,6 @@ const niveles = {
 
 };
 
-
-// ==========================================================
-// SELECCIÓN VISUAL
-// ==========================================================
-
 opciones.forEach(opcion=>{
 
     const radio = opcion.querySelector("input");
@@ -83,11 +60,6 @@ opciones.forEach(opcion=>{
 
 });
 
-
-// ==========================================================
-// MENSAJES
-// ==========================================================
-
 function mostrarMensaje(texto,color){
 
     mensaje.innerHTML=texto;
@@ -95,11 +67,6 @@ function mostrarMensaje(texto,color){
     mensaje.style.color=color;
 
 }
-
-
-// ==========================================================
-// BOTÓN
-// ==========================================================
 
 function bloquearBoton(){
 
@@ -126,11 +93,6 @@ function desbloquearBoton(){
     `;
 
 }
-
-
-// ==========================================================
-// FORMULARIO
-// ==========================================================
 
 formulario.addEventListener("submit",async(e)=>{
 
